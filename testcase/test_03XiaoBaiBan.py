@@ -69,6 +69,32 @@ class TestXiaobaiban(unittest.TestCase):
         self.assertTrue(self.d(resourceId="com.esenyun.workline:id/rb_conclusion_draft").exists, "未进入结论草稿")
 
 
+    def test03ShanchuPinglun(self):
+        self.log.info_log("查看评论测试开始")
+        time.sleep(3)
+        self.d(text=u"我的小白板").click()
+        time.sleep(1)
+        self.d(text=u"冷藏库开辟市场参考").click()
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/tv_say_sth").click() #点击编辑框
+        time.sleep(1)
+        self.d.send_keys("测试测试")
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/tv_comment_send").click()
+        time.sleep(1)
+        self.d.long_click(0.621, 0.847,1)
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/custom_dialog_text_view", text=u"删除").click()
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/md_buttonDefaultPositive").click()
+        time.sleep(1)
+        self.assertFalse(self.d(text=u"测试测试").exists,"删除失败")
+        time.sleep(1)
+        self.log.info_log("查看评论删除成功")
+
+
+
+
 
 
 if __name__ == '__main__':
