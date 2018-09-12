@@ -3,7 +3,7 @@ import unittest
 import uiautomator2 as u2
 import time
 import uiautomator2.ext.htmlreport as htmlreport
-import logging
+from public import log
 
 
 class TestXiaobaiban(unittest.TestCase):
@@ -24,6 +24,7 @@ class TestXiaobaiban(unittest.TestCase):
             "uiautomator").stop()  # 停止uiautomator守护程序，允许其他测试框架如 appium 运行
 
     def setUp(self):
+        self.log = log.log_message()
         self.d = self.u.session("com.esenyun.workline")  # restart app
         time.sleep(5)  # 等待首页广告结束
 
@@ -33,6 +34,8 @@ class TestXiaobaiban(unittest.TestCase):
 
 
     def test01Jibenbianli(self):  # 进入客户体验进行菜单遍历
+        self.log.info_log("开始遍历客户体验菜单")
+        time.sleep(1)
         self.d(text="客户体验").click()
         time.sleep(3)
         self.d(resourceId="com.esenyun.workline:id/iv_title_right").click()  # 进入dashboard
@@ -50,6 +53,7 @@ class TestXiaobaiban(unittest.TestCase):
         self.d.click(0.593, 0.418)
         time.sleep(1)
         self.d.click(0.784, 0.968)
+        self.log.info_log("客户体验菜单遍历结束")
         time.sleep(2)
 
 if __name__ == '__main__':
