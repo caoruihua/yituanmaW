@@ -62,7 +62,7 @@ class TestYituanma(unittest.TestCase):
         time.sleep(1)
         self.d(resourceId="com.esenyun.workline:id/tv_confirm").click()
         time.sleep(1)
-        self.d(resourceId="com.esenyun.workline:id/title_tv_right").click()
+        self.d(resourceId="com.esenyun.workline:id/title_tv_right").click()  #测试提交
         time.sleep(1)
         self.log.info_log("我的待办测试完成")  #ceshi
         time.sleep(2)
