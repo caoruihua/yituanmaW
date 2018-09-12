@@ -62,9 +62,9 @@ class TestYituanma(unittest.TestCase):
         time.sleep(1)
         self.d(resourceId="com.esenyun.workline:id/tv_confirm").click()
         time.sleep(1)
-        self.d(resourceId="com.esenyun.workline:id/title_tv_right").click()
+        self.d(resourceId="com.esenyun.workline:id/title_tv_right").click()  #测试提交
         time.sleep(1)
-        self.log.info_log("我的待办测试完成")
+        self.log.info_log("我的待办测试完成")  #ceshi
         time.sleep(2)
         self.assertTrue(self.d(resourceId="com.esenyun.workline:id/title_iv_right").exists, "控件定位不到")
 
@@ -75,7 +75,7 @@ class TestYituanma(unittest.TestCase):
         time.sleep(2)
         self.d(resourceId="com.esenyun.workline:id/title_iv_right").click()
         time.sleep(4)
-        self.d.click(0.513, 0.136) #点击我派发的
+        self.d.click(0.513, 0.136) #点击我派发的任务
         time.sleep(1)
         self.d.click(0.816, 0.145) #点击带我验证
         time.sleep(1)
