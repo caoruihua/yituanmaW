@@ -6,7 +6,7 @@ import uiautomator2.ext.htmlreport as htmlreport
 import logging
 
 
-class TestXiaobaiban(unittest.TestCase):
+class TestTuanDui(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.u = u2.connect_usb()
@@ -47,6 +47,33 @@ class TestXiaobaiban(unittest.TestCase):
         time.sleep(2)
         self.assertTrue(self.d(resourceId="com.esenyun.workline:id/buttonAudioMessage").exists,"未进入消息")
         time.sleep(2)
+
+
+    def test03CreatTuandui(self):
+        self.d(text=u"团队").click()
+        time.sleep(1)
+        self.d(text=u"新建").click() #开始新建团队
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/et_name").set_text("测试团队")
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/et_desc").set_text("测试测试测试测试(；′⌒`)")
+        time.sleep(2)
+        self.d(resourceId="com.esenyun.workline:id/iv_group_logo_right").click()
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/tv_dialog_item_name", text=u"从相册选择").click()
+        time.sleep(1)
+        self.d.click(0.077, 0.22)
+        time.sleep(1)
+        self.d(resourceId="com.esenyun.workline:id/done").click()
+        time.sleep(1)
+        self.d(resourceId="com.android.gallery3d:id/head_select_right", description=u"确定",
+          className="android.widget.ImageButton", instance=1).click()
+        time.sleep(1)
+        self.d(text=u"完成并创建").click()
+        time.sleep(1)
+
+
+
 
 
 
